@@ -1,10 +1,11 @@
+import MainPage from "./pages/Main/MainPage";
 
 
 function App() {
   return (
-    <>
-    asdf
-    </>
+
+    <MainPage />
+    
   );
 }
 

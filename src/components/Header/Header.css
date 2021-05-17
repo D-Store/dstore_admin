@@ -1,0 +1,59 @@
+
+body{
+    width: 100%;
+    margin:auto
+}
+.Header{
+    
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 10vh;
+    border-bottom: 1px solid black;
+    background-color: black;
+}
+
+.Header-template{
+    width: 80%;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.Header-main{
+    width: 15%;
+    font-size: 3.5vh;
+    padding-right: 50px;
+    color: #fff;
+    align-items: center;
+}
+
+.Header-items{
+    
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-areas: "options log";
+}
+
+.Header-items-option{
+    grid-area: options;
+    display: flex;
+    align-items: center;
+}
+
+.Header-items-option > div{
+    padding-right: 30px;
+    font-size: 3vh;
+    color: #fff;
+}
+
+.Header-items-log{
+    grid-area: log;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 3vh;
+    margin-right: 40px;
+    color: #fff;
+}
