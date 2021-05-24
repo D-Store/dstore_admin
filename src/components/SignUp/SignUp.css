@@ -1,0 +1,80 @@
+body{
+    width: 100%;
+    margin:auto;
+}
+
+.Template{
+    min-height: 90vh;
+    box-sizing: border-box;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.MainBox{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    margin-top: 23vh;
+    
+}
+
+.SignUp-title{
+   font-size: 5vh;
+}
+
+.SignUp-main-box-id{
+    display: flex;
+}
+
+.SignUp-main-box-options{
+    display: flex;
+    flex-direction: column;
+}
+.SignUpBtn{
+    display: flex;
+    justify-content: center;
+}
+.SignUp-main-box-options > input{
+    font-size: 3vh;
+    margin-top: 10px;
+}
+.SignUp-main-box-id > input{
+    font-size: 3vh;
+    
+}
+.SignUp-main-box-id > div{
+    font-size: 3vh;
+    padding-left: 10px;
+}
+.SignUpBtn{
+    font-size: 3vh;
+    margin-top: 20px;
+    background-color: blue;
+}
+.goLogin{
+    margin-top: 15px;
+}
+
+.goLogin > a{
+    text-decoration: none;
+    color: black;
+}
+
+.goLogin::after {
+    content: '〉';
+    margin-left: 0.25rem;
+    box-sizing: border-box;
+    transition: all 0.25s;
+    position: absolute;
+}
+
+.goLogin:hover::after{
+    padding-left: 0.5rem;
+    cursor: pointer;
+}
+
+.SignUp-title {
+    margin-bottom: 50px;
+}

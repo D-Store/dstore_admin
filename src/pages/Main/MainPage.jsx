@@ -1,12 +1,13 @@
 import React from 'react'
-import HeaderContainer from '../../containers/Header/HeaderContainer';
-import MainContainer from '../../containers/Main/MainContainer';
+import Header from '../../components/Header/Header';
+import Main from '../../components/Main/Main';
+
 
 const MainPage = () => {
     return(
         <>
-            <HeaderContainer />
-            <MainContainer />
+            <Header/>
+            <Main/>
         </>
     )
 }

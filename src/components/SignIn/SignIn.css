@@ -1,0 +1,51 @@
+body{
+    margin: auto;
+    width: 100%;
+}
+
+.Template{
+    min-height: 90vh;
+    box-sizing: border-box;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.MainBox-options{
+    display: flex;
+    flex-direction: column;
+}
+.MainBox-title{
+    font-size: 5vh;
+    margin-bottom: 50px;
+}
+
+.MainBox-options > input {
+    font-size: 3vh;
+    margin-bottom: 10px;
+}
+
+.MainBox-loginBtn{
+    margin-top: 10px;
+    font-size: 3vh;
+    background-color: blue;
+    margin-bottom: 20px;
+}
+
+.goRegister > a{
+    color: black;
+    text-decoration: none;
+}
+
+.goRegister::after{
+    content: '〉';
+    margin-left: 0.25rem;
+    box-sizing: border-box;
+    transition: all 0.25s;
+    position: absolute;
+}
+
+.goRegister:hover::after{
+    padding-left: 0.25rem;
+}
+
