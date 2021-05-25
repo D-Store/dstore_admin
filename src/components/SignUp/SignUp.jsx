@@ -11,7 +11,7 @@ const SignUp = () => {
                 <div className="SignUp-main-box">
                     <div className="SignUp-main-box-id">
                         <input type="text" placeholder="아이디" className="idBox"/>
-                        <div className="idBtn">중복확인</div>
+                        <div className="idBtn">메일인증</div>
                     </div>
                     <div className="SignUp-main-box-options">
                         <input type="text" placeholder="이름" className="nameBox"/>

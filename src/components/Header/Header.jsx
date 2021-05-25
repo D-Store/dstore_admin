@@ -1,7 +1,14 @@
 import React from 'react'
 import "./Header.css"
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
+
+    const activeStyle = {
+        "border-bottom": "2px solid white",
+        "border-width":"3px",
+    }
+
     return(
         <div className="Header">
             <div className="Header-template">
@@ -10,15 +17,21 @@ const Header = () => {
                 </div>
                 <div className="Header-items">
                     <div className="Header-items-option">
-                        <div className="Header-items-option-userInfo">
-                            userInfo
-                        </div>
-                        <div className="Header-items-option-a">
-                            aaaaaaa
-                        </div>
-                        <div className="Header-items-option-b">
-                            bbbbbbb
-                        </div>
+                        <NavLink 
+                        to="/UserInfo" 
+                        className="Header-items-option-link"
+                        activeStyle={activeStyle}
+                        > userInfo </NavLink>
+                        <NavLink 
+                        to="/" 
+                        className="Header-items-option-link"
+                        // activeStyle={activeStyle}
+                        > aaaa </NavLink>
+                        <NavLink 
+                        to="/" 
+                        className="Header-items-option-link"
+                        // activeStyle={activeStyle}
+                        > bbbbb </NavLink>
                     </div>
                     <div className="Header-items-log">
                         logs

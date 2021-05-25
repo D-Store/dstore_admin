@@ -42,10 +42,12 @@ body{
     align-items: center;
 }
 
-.Header-items-option > div{
-    padding-right: 30px;
+.Header-items-option-link{
+    margin-right: 30px;
     font-size: 3vh;
     color: #fff;
+    text-decoration: none;
+    
 }
 
 .Header-items-log{
