@@ -6,7 +6,6 @@ body{
 .Header{
     
     display: flex;
-    text-align: center;
     align-items: center;
     height: 10vh;
     border-bottom: 1px solid black;
