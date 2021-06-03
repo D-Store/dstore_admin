@@ -1,17 +1,45 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import "./UserInfo.css"
 import titleImg from "../../assets/Img/UserInfo/user.png"
 import useInfoHook from "../../Hooks/UserInfo/useInfoHook"
-import UserInfoApi from '../../assets/Api/UserInfo/UserInfoApi'
 
 const UserInfo = () => {
     
-    useEffect( async ()=> {
-        const response = await UserInfoApi.getUserList();
+    const { 
+        getUsers,
+        getAdmins,
+        pageNum,
+        setPageNum,
+        goLeft,
+        goRight,
+        user,
+        setUser,
+        show,
+        setShow,
+        showUser,
+        showAdmin,
+        totalPage,
+        setTotalPage,
+        deleteUser
+     } = useInfoHook();
 
-        console.log(response)
-    })
-
+    useEffect( async ()=>{
+        show ? (
+            getUsers(pageNum).then((res)=>{
+                
+                setUser(res.data.users);
+                setTotalPage(res.data.totalPages);
+            })
+        ):(
+            getAdmins(pageNum).then((res)=>{
+                setUser(res.data.users);
+                setTotalPage(res.data.totalPages);
+                
+            })
+        )
+    
+    },[pageNum,show])
+    
     return(
         <div className="UserInfo">
             <div className="userInfoMainBox">
@@ -26,10 +54,10 @@ const UserInfo = () => {
                         </div>
                     </div>
                     <div className="userInfo-title-options">
-                        <div className="user">
+                        <div className={show?"user show":"user"} onClick={()=>{showUser()}}>
                             유저                        
                         </div>
-                        <div className="admin">
+                        <div className={show?"admin":"admin show"} onClick={()=>{showAdmin()}}>
                             어드민
                         </div>
                         <div className="search">
@@ -59,483 +87,85 @@ const UserInfo = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="userInfo-options-table-td profile">
-                                    <img 
-                                    src={titleImg}
-                                    className="userInfo-options-table-td-userImg"/>
-                                </td>
-                                <td className="userInfo-options-table-td email">
-                                    test1234@test.com
-                                </td>
-                                <td className="userInfo-options-table-td name">
-                                    테스터
-                                </td>
-                                <td className="userInfo-options-table-td role">
-                                    user
-                                </td>
-                                <td className="userInfo-options-table-td">
-                                    <div>
-                                        삭제
-                                    </div>
-                                </td>
-                            </tr>
-
-                            
+                            {
+                                user.map((data)=>(
+                                    
+                                    <>
+                                    {console.log(data)}
+                                    {data.onDelete?(
+                                        <tr className="onDelete">
+                                        <td className="userInfo-options-table-td profile">
+                                            {data.profileImage ? (<img
+                                                src={data.profileImage}
+                                                className="userInfo-options-table-td-userImg"
+                                            />):(
+                                                <img 
+                                                src={titleImg}
+                                                className="userInfo-options-table-td-userImg"
+                                            />
+                                            )}
+                                        </td>
+                                        <td className="userInfo-options-table-td email">
+                                            {data.email}
+                                        </td>
+                                        <td className="userInfo-options-table-td name">
+                                            {data.name} 
+                                        </td>
+                                        <td className="userInfo-options-table-td role">
+                                            {data.role}
+                                        </td>
+                                        <td className="userInfo-options-table-td">
+                                            <div onClick={()=>{deleteUser(data.id)}}>
+                                                삭제
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    ):(
+                                        <tr>
+                                        <td className="userInfo-options-table-td profile">
+                                            {data.profileImage ? (<img
+                                                src={data.profileImage}
+                                                className="userInfo-options-table-td-userImg"
+                                            />):(
+                                                <img 
+                                                src={titleImg}
+                                                className="userInfo-options-table-td-userImg"
+                                            />
+                                            )}
+                                        </td>
+                                        <td className="userInfo-options-table-td email">
+                                            {data.email}
+                                        </td>
+                                        <td className="userInfo-options-table-td name">
+                                            {data.name} 
+                                        </td>
+                                        <td className="userInfo-options-table-td role">
+                                            {data.role}
+                                        </td>
+                                        <td className="userInfo-options-table-td">
+                                            <div onClick={()=>{deleteUser(data.id)}}>
+                                                삭제
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    )}
+                                    
+                                    </>
+                                ))
+                            }
 
                         </tbody>
                     </table>
                 </div>
                 <div className="pageNation">
-                    <div className="leftBtn">
-                        .
+                    <div className="userInfoLeftBtn" onClick={()=>{goLeft(pageNum)}} >
+                        이전
                     </div>
                     <div className="pageNum">
-                        1
+                        {pageNum+1}
                     </div>
-                    <div className="rightBtn">
-
+                    <div className="userInfoRightBtn" onClick={()=>{goRight(pageNum,totalPage)}}>
+                        다음
                     </div>
                 </div>
             </div>
