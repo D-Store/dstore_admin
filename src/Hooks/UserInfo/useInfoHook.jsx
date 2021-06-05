@@ -54,6 +54,10 @@ const useInfoHook = () => {
 
     }
 
+    const changeRole = async (id) =>{
+        const response = await UserInfoApi.changeRole(id)
+    }
+
     return { 
         getUsers,
         getAdmins,
@@ -69,7 +73,8 @@ const useInfoHook = () => {
         showAdmin,
         totalPage,
         setTotalPage,
-        deleteUser
+        deleteUser,
+        changeRole
     }
 }
 

@@ -26,6 +26,12 @@ class UserInfoApi {
         
 
     }
+
+    async changeRole(id){
+        const response = await axios.put(`${SERVER}/admin/user/permission/${id}`)
+
+        console.log(response)
+    }
 }
 
 export default new UserInfoApi();

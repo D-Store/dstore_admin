@@ -20,7 +20,8 @@ const UserInfo = () => {
         showAdmin,
         totalPage,
         setTotalPage,
-        deleteUser
+        deleteUser,
+        changeRole
      } = useInfoHook();
 
     useEffect( async ()=>{
@@ -111,7 +112,7 @@ const UserInfo = () => {
                                         <td className="userInfo-options-table-td name">
                                             {data.name} 
                                         </td>
-                                        <td className="userInfo-options-table-td role">
+                                        <td className="userInfo-options-table-td role" onClick={()=>{changeRole(data.id)}}>
                                             {data.role}
                                         </td>
                                         <td className="userInfo-options-table-td">
@@ -139,7 +140,7 @@ const UserInfo = () => {
                                         <td className="userInfo-options-table-td name">
                                             {data.name} 
                                         </td>
-                                        <td className="userInfo-options-table-td role">
+                                        <td className="userInfo-options-table-td role" onClick={()=>{changeRole(data.id)}}>
                                             {data.role}
                                         </td>
                                         <td className="userInfo-options-table-td">
