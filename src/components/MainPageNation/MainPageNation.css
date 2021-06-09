@@ -1,0 +1,18 @@
+.pageNation{
+    display: flex;
+
+}
+.leftBtn{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pageNum{
+    display: flex;
+    justify-content: center;
+}
+
+.rightBtn{
+    display: flex;
+    justify-content: flex-end;
+}

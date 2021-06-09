@@ -1,0 +1,60 @@
+thead{
+    background-color: #363a44;
+    border: 0;
+    color: #fff;
+}
+table{
+    border-collapse: collapse;
+}
+
+tr{
+    border-bottom: 1px solid #e6e6e6;
+}
+
+
+.Main-options-table{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Main-options-table-th{
+    padding: 6px 12px;
+    
+}
+
+th,td{
+    text-align: center;
+}
+
+.Main-options-table-td{
+    padding: 6px 12px;
+    height: 70px;
+}
+
+.title{
+    width: 15%;
+}
+
+.leader{
+    width: 10%;
+}
+
+.content{
+    width: 25%;
+}
+
+.createTime{
+    width: 15%;
+}
+
+.like{
+    width: 10%;
+}
+
+.tages{
+    width: 15%;
+}
+
+.MainDelete{
+    width: 10%;
+}

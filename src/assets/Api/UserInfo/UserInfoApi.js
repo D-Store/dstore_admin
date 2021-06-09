@@ -24,13 +24,72 @@ class UserInfoApi {
         
         const response = await axios.delete(`${SERVER}/admin/user/${id}`)
         
-
+        return response
     }
 
-    async changeRole(id){
+    async changeRoleAdmin(id){
         const response = await axios.put(`${SERVER}/admin/user/permission/${id}`)
 
         console.log(response)
+    }
+
+    async changeRoleUser(id){
+        const response = await axios.delete(`${SERVER}/admin/user/permission/${id}`)
+
+        
+    }
+
+    async searchForName(pageNum,name){
+
+        const size=5;
+        const response = await axios.get(`${SERVER}/admin/user/search`,{params:{
+            page:pageNum,
+            size:size,
+            sort:"id,desc",
+            keyword:name,
+            r:"USER",
+            m:"name"
+        }})
+        
+        return response
+    }
+
+    async searchForEmail(pageNum,name){
+        const size=5;
+        const response = await axios.get(`${SERVER}/admin/user/search`,{params:{
+            page:pageNum,
+            size:size,
+            sort:"id,desc",
+            keyword:name,
+            r:"USER",
+            m:"email"
+        }})
+        return response
+    }
+
+    async searchAdminForName(pageNum,name){
+        const size=5;
+        const response = await axios.get(`${SERVER}/admin/user/search`,{params:{
+            page:pageNum,
+            size:size,
+            sort:"id,desc",
+            keyword:name,
+            r:"ADMIN",
+            m:"name"
+        }})
+        return response
+    }
+    async searchAdminForEmail(pageNum,name){
+        const size=5;
+        const response = await axios.get(`${SERVER}/admin/user/search`,{params:{
+            page:pageNum,
+            size:size,
+            sort:"id,desc",
+            keyword:name,
+            r:"ADMIN",
+            m:"email"
+        }})
+        return response
     }
 }
 

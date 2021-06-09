@@ -1781,6 +1781,11 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
 
+"@types/recoilize@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@types/recoilize/-/recoilize-0.8.0.tgz#7351f7a048bcef9c712f39d05696ce7fd2a414fe"
+  integrity sha512-h4Rm8J/8XH1wZIZC5gOeN9EDJWBhK2sLEs5voSHyZKB5cynIDbohuYS6rEdv2kNPrwoYQyt7D3yeXI9ODvZDlw==
+
 "@types/resolve@0.0.8":
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/@types/resolve/-/resolve-0.0.8.tgz#f26074d238e02659e323ce1a13d041eee280e194"
@@ -7278,6 +7283,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -9125,13 +9135,14 @@ react-scripts@4.0.3:
   optionalDependencies:
     fsevents "^2.1.3"
 
-react@^17.0.2:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
+react@^16.8.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -9207,12 +9218,17 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-recoil@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.3.0.tgz#c01a9b75d4def1368402ff7ff9c3f89ed13a9dd7"
-  integrity sha512-RoffgcFNo8C1i5BR+c+L6e3IgMmkx41dbVFUhNsk2vfdi8pGlqIEVP/ppbm+8tGRwkQA0Kt2RZTN6StIcH+dQw==
+recoil@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.3.1.tgz#40ef544160d19d76e25de8929d7e512eace13b90"
+  integrity sha512-KNA3DRqgxX4rRC8E7fc6uIw7BACmMPuraIYy+ejhE8tsw7w32CetMm8w7AMZa34wzanKKkev3vl3H7Z4s0QSiA==
   dependencies:
     hamt_plus "1.0.2"
+
+recoilize@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/recoilize/-/recoilize-2.0.1.tgz#8c81ba83a7da8c8c881b861b87d1a1fd00a25a8c"
+  integrity sha512-C/JML0SxXDbJ74iNF46GQGrc9g3CRd2+rmNBcpwkCc1L9OSSYki4ipbUPCJL6I8Bbw5slKXY809RWrF0nwhRoQ==
 
 recursive-readdir@2.2.2:
   version "2.2.2"
@@ -10517,6 +10533,11 @@ thunky@^1.0.2:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-1.1.0.tgz#5abaf714a9405db0504732bbccd2cedd9ef9537d"
   integrity sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==
+
+time-counting@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/time-counting/-/time-counting-2.0.1.tgz#d11ad0a1cda64fab6a8cebb3a6b5b63c32c62101"
+  integrity sha512-cAOTViq4ocJO7TlvhBqB2+htHQBROvwtrNDZqwdzGZBatInajhm6AzufHiQatXTU9mo79A9t2tjZw3OsS6BleA==
 
 timers-browserify@^2.0.4:
   version "2.0.12"

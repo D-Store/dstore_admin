@@ -2,44 +2,64 @@ import React,{useEffect,useState} from 'react'
 import "./UserInfo.css"
 import titleImg from "../../assets/Img/UserInfo/user.png"
 import useInfoHook from "../../Hooks/UserInfo/useInfoHook"
+import {useRecoilState} from "recoil";
+import {pageNumState,showState,SearchState,userState,totalPageState,selectState} from "../../stores/state";
+import UserInfoApi from "../../assets/Api/UserInfo/UserInfoApi";
 
 const UserInfo = () => {
     
-    const { 
-        getUsers,
-        getAdmins,
-        pageNum,
-        setPageNum,
-        goLeft,
-        goRight,
-        user,
-        setUser,
-        show,
-        setShow,
-        showUser,
-        showAdmin,
-        totalPage,
-        setTotalPage,
-        deleteUser,
-        changeRole
-     } = useInfoHook();
+    const [pageNum,setPageNum] = useRecoilState(pageNumState);
+    const [show,setShow] = useRecoilState(showState);
+    const [searchValue,setSearchValue] = useRecoilState(SearchState);
+    const [user,setUser] = useRecoilState(userState);
+    const [totalPage,setTotalPage] = useRecoilState(totalPageState);
+    const [selectValue,setSelectValue] = useRecoilState(selectState);
 
-    useEffect( async ()=>{
-        show ? (
-            getUsers(pageNum).then((res)=>{
-                
-                setUser(res.data.users);
-                setTotalPage(res.data.totalPages);
-            })
-        ):(
-            getAdmins(pageNum).then((res)=>{
-                setUser(res.data.users);
-                setTotalPage(res.data.totalPages);
-                
-            })
-        )
+     const showUser = () => {
+        setShow(true)
+        setPageNum(0)
+    }
+
+    const showAdmin = () => {
+        setShow(false)
+        setPageNum(0)
+    }
+
+    const changeSelect = (e) => {
+        setSelectValue(e.target.value)
+    }
+
+    const onChange = (e) => {
+        setSearchValue(e.target.value)
+    }
+
+    const searchUser = async (e,searchValue) => {
+        if(e.key==="Enter"){
+            if(selectValue==="이름"){
+                if(show===true){
+                    const response = await UserInfoApi.searchForName(0,searchValue)
+                    setUser(response.data.users)
+                    setTotalPage(response.data.totalPages)
+                }else{
+                    const response = await UserInfoApi.searchAdminForName(0,searchValue)
+                    setUser(response.data.users)
+                    setTotalPage(response.data.totalPages)
+                }
+            }else{
+                if(show===true){
+                    const response = await UserInfoApi.searchForEmail(0,searchValue)
+                    setUser(response.data.users)
+                    setTotalPage(response.data.totalPages)
+                }else{
+                    const response = await UserInfoApi.searchAdminForEmail(0,searchValue)
+                    setUser(response.data.users)
+                    setTotalPage(response.data.totalPages)
+                }
+            }
+        }
     
-    },[pageNum,show])
+    }
+
     
     return(
         <div className="UserInfo">
@@ -62,111 +82,12 @@ const UserInfo = () => {
                             어드민
                         </div>
                         <div className="search">
-                        <input />
+                            <select className="search-options" onChange={changeSelect}> 
+                                <option name="name">이름</option>
+                                <option name="email">이메일</option>
+                            </select>
+                            <input value={searchValue} onChange={onChange} onKeyPress={(e)=>{searchUser(e,searchValue)}}/>
                         </div>
-                    </div>
-                </div>
-                <div className="userInfo-options">
-                    <table className="userInfo-options-table">
-                        <thead>
-                            <tr>
-                                <th className="userInfo-options-table-th profile">
-                                    프로필
-                                </th>
-                                <th className="userInfo-options-table-th email">
-                                    이메일
-                                </th>
-                                <th className="userInfo-options-table-th name">
-                                    이름
-                                </th>
-                                <th className="userInfo-options-table-th role">
-                                    역할
-                                </th>
-                                <th className="userInfo-options-table-th delete">
-                                    삭제여부
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                user.map((data)=>(
-                                    
-                                    <>
-                                    {console.log(data)}
-                                    {data.onDelete?(
-                                        <tr className="onDelete">
-                                        <td className="userInfo-options-table-td profile">
-                                            {data.profileImage ? (<img
-                                                src={data.profileImage}
-                                                className="userInfo-options-table-td-userImg"
-                                            />):(
-                                                <img 
-                                                src={titleImg}
-                                                className="userInfo-options-table-td-userImg"
-                                            />
-                                            )}
-                                        </td>
-                                        <td className="userInfo-options-table-td email">
-                                            {data.email}
-                                        </td>
-                                        <td className="userInfo-options-table-td name">
-                                            {data.name} 
-                                        </td>
-                                        <td className="userInfo-options-table-td role" onClick={()=>{changeRole(data.id)}}>
-                                            {data.role}
-                                        </td>
-                                        <td className="userInfo-options-table-td">
-                                            <div onClick={()=>{deleteUser(data.id)}}>
-                                                삭제
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    ):(
-                                        <tr>
-                                        <td className="userInfo-options-table-td profile">
-                                            {data.profileImage ? (<img
-                                                src={data.profileImage}
-                                                className="userInfo-options-table-td-userImg"
-                                            />):(
-                                                <img 
-                                                src={titleImg}
-                                                className="userInfo-options-table-td-userImg"
-                                            />
-                                            )}
-                                        </td>
-                                        <td className="userInfo-options-table-td email">
-                                            {data.email}
-                                        </td>
-                                        <td className="userInfo-options-table-td name">
-                                            {data.name} 
-                                        </td>
-                                        <td className="userInfo-options-table-td role" onClick={()=>{changeRole(data.id)}}>
-                                            {data.role}
-                                        </td>
-                                        <td className="userInfo-options-table-td">
-                                            <div onClick={()=>{deleteUser(data.id)}}>
-                                                삭제
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    )}
-                                    
-                                    </>
-                                ))
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
-                <div className="pageNation">
-                    <div className="userInfoLeftBtn" onClick={()=>{goLeft(pageNum)}} >
-                        이전
-                    </div>
-                    <div className="pageNum">
-                        {pageNum+1}
-                    </div>
-                    <div className="userInfoRightBtn" onClick={()=>{goRight(pageNum,totalPage)}}>
-                        다음
                     </div>
                 </div>
             </div>

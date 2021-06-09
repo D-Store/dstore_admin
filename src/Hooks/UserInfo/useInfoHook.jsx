@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useState } from 'react'
 import UserInfoApi from '../../assets/Api/UserInfo/UserInfoApi'
+import {useSetRecoilState} from 'recoil'
+import {userState} from '../../stores/state'
+
 
 const useInfoHook = () => {
-    
+    const setUser =useSetRecoilState(userState)
     const getUsers = async (pageNum) => {
         const response = await UserInfoApi.getUserList(pageNum);
-
+        console.log("asdf")
         return response;
     }
 
@@ -15,66 +18,53 @@ const useInfoHook = () => {
 
         return response;
     }
-    
-    const [pageNum,setPageNum] = useState(0);
-    const [totalPage,setTotalPage] = useState(0);
-    const [show,setShow] = useState(true);
-    const [user,setUser] = useState([]);
-
-    const goLeft = (pageNum) => {
-        if(pageNum===0){
-            return pageNum
-        }else{
-            setPageNum(pageNum - 1)
-        }
-    }
-
-    const goRight = (pageNum,totalPage) => {
-        if(pageNum===totalPage-1){
-            return pageNum
-        }else{
-            setPageNum(pageNum + 1)
-        }
-    }
-
-    const showUser = () => {
-        setShow(true)
-        setPageNum(0)
-    }
-
-    const showAdmin = () => {
-        setShow(false)
-        setPageNum(0)
-    }
 
     const deleteUser = async (id) => {
+        await UserInfoApi.deleteUser(id);
+    };
+
+    const changeRoleAdmin = async (id,pageNum) =>{
+        const response = await UserInfoApi.changeRoleAdmin(id)
+        getUsers(pageNum)
+    }
+
+    const changeRoleUser = async (id) => {
+        const response = await UserInfoApi.changeRoleUser(id)
+    }
+
+    const pagingSearchUserName = async (pageNum,searchValue) => {
+        const response = await UserInfoApi.searchForName(pageNum,searchValue)
         
-       const response = await UserInfoApi.deleteUser(id)
-       
-
+        return response
+    }
+    const pagingSearchUserEmail = async (pageNum,searchValue) => {
+        const response = await UserInfoApi.searchForEmail(pageNum,searchValue)
+        
+        return response
     }
 
-    const changeRole = async (id) =>{
-        const response = await UserInfoApi.changeRole(id)
+    const pagingSearchAdminName = async (pageNum,searchValue) => {
+        const response = await UserInfoApi.searchAdminForName(pageNum,searchValue)
+        
+        return response
     }
 
-    return { 
+    const pagingSearchAdminEmail = async (pageNum,searchValue) => {
+        const response = await UserInfoApi.searchAdminForEmail(pageNum,searchValue)
+        
+        return response
+    }
+
+    return {         
         getUsers,
         getAdmins,
-        pageNum,
-        setPageNum,
-        goLeft,
-        goRight,
-        user,
-        setUser,
-        show,
-        setShow,
-        showUser,
-        showAdmin,
-        totalPage,
-        setTotalPage,
         deleteUser,
-        changeRole
+        changeRoleAdmin,
+        changeRoleUser,
+        pagingSearchUserName,
+        pagingSearchUserEmail,
+        pagingSearchAdminName,
+        pagingSearchAdminEmail
     }
 }
 

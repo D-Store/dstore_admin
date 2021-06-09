@@ -1,12 +1,10 @@
 .MainComponent{
-    border: 1px solid black;
     width: 80%;
     display: flex;
     flex-direction: column;
     margin-right: auto;
     margin-left: auto;
     margin-top: 17vh;
-    margin-bottom: 17vh;
 }
 
 .Main-title{
@@ -21,19 +19,6 @@
     background-color: #2b2f37;
     color: #fff;
 }
-thead{
-    background-color: #363a44;
-    border: 0;
-    color: #fff;
-}
-table{
-    border-collapse: collapse;
-}
-
-tr{
-    border-bottom: 1px solid #e6e6e6;
-}
-
 .Main-title-titleBox{
     display: flex;
     align-items: center;
@@ -65,69 +50,4 @@ tr{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.Main-options-table{
-    width: 100%;
-}
-.Main-options-table-th{
-    padding: 6px 12px;
-    
-}
-
-th,td{
-    text-align: center;
-}
-
-.Main-options-table-td{
-    padding: 6px 12px;
-    height: 70px;
-}
-
-
-.title{
-    width: 15%;
-}
-
-.leader{
-    width: 10%;
-}
-
-.content{
-    width: 25%;
-}
-
-.createTime{
-    width: 15%;
-}
-
-.like{
-    width: 10%;
-}
-
-.tages{
-    width: 15%;
-}
-
-.MainDelete{
-    width: 10%;
-}
-
-.pageNation{
-    display: flex;
-
-}
-.leftBtn{
-    display: flex;
-    justify-content: flex-start;
-}
-
-.pageNum{
-    display: flex;
-    justify-content: center;
-}
-
-.rightBtn{
-    display: flex;
-    justify-content: flex-end;
 }
