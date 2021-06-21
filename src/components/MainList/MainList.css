@@ -1,60 +1,64 @@
-thead{
-    background-color: #363a44;
-    border: 0;
-    color: #fff;
+thead {
+  background-color: #363a44;
+  border: 0;
+  color: #fff;
 }
-table{
-    border-collapse: collapse;
-}
-
-tr{
-    border-bottom: 1px solid #e6e6e6;
+table {
+  border-collapse: collapse;
 }
 
-
-.Main-options-table{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.Main-options-table-th{
-    padding: 6px 12px;
-    
+tr {
+  border-bottom: 1px solid #e6e6e6;
 }
 
-th,td{
-    text-align: center;
+.Main-options-table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Main-options-table-th {
+  padding: 6px 12px;
 }
 
-.Main-options-table-td{
-    padding: 6px 12px;
-    height: 70px;
+th,
+td {
+  text-align: center;
 }
 
-.title{
-    width: 15%;
+.Main-options-table-td {
+  padding: 6px 12px;
+  height: 70px;
 }
 
-.leader{
-    width: 10%;
+.Main-options-table-td > img {
+  width: 100%;
+  height: 100px;
 }
 
-.content{
-    width: 25%;
+.title {
+  width: 15%;
 }
 
-.createTime{
-    width: 15%;
+.leader {
+  width: 10%;
 }
 
-.like{
-    width: 10%;
+.content {
+  width: 25%;
 }
 
-.tages{
-    width: 15%;
+.createTime {
+  width: 15%;
 }
 
-.MainDelete{
-    width: 10%;
+.like {
+  width: 10%;
+}
+
+.tages {
+  width: 15%;
+}
+
+.MainDelete {
+  width: 10%;
 }

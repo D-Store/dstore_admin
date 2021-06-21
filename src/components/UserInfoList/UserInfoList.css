@@ -1,79 +1,76 @@
-thead{
-    background-color: #363a44;
-    border: 0;
-    color: #fff;
+thead {
+  background-color: #363a44;
+  border: 0;
+  color: #fff;
 }
-table{
-    border-collapse: collapse;
-}
-
-tr{
-    border-bottom: 1px solid #e6e6e6;
+table {
+  border-collapse: collapse;
 }
 
-.userInfo-options-table{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+tr {
+  border-bottom: 1px solid #e6e6e6;
 }
 
-.userInfo-options-table-th{
-    padding: 6px 12px;
-    
+.userInfo-options-table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-th,td{
-    text-align: center;
-    height: 40px;
+.userInfo-options-table-th {
+  padding: 6px 12px;
 }
 
-.email{
-    width: 25%;
-    text-align: left;
-    padding-left: 18px;
+th,
+td {
+  text-align: center;
+  height: 40px;
 }
 
-.profile{
-    width: 15%;
+.email {
+  width: 25%;
+  text-align: left;
+  padding-left: 18px;
 }
 
-.name{
-    width: 20%;
+.profile {
+  width: 15%;
 }
 
-.role{
-    width: 20%;
+.name {
+  width: 20%;
 }
 
-.delete{
-    width: 20%;
+.role {
+  width: 20%;
 }
 
-.userInfo-options-table-td{
-    padding: 6px 12px;
+.delete {
+  width: 20%;
 }
 
-
-.userInfo-options-table-td-userImg{
-    width: 35px;
+.userInfo-options-table-td {
+  padding: 6px 12px;
 }
 
-
-.pageNum{
-    margin-left: 50px;
-    margin-right: 50px;
-    font-size: 20px;
+.userInfo-options-table-td-userImg {
+  width: 35px;
 }
 
-.arrow{
-    width: 15px;
+.pageNum {
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 20px;
 }
 
-.show{
-    background-color: #ec6765;
+.arrow {
+  width: 15px;
 }
 
-.onDelete{
-    background-color: #f5f5f5;
+.show {
+  background-color: #ec6765;
 }
 
+.onDelete {
+  background-color: #f5f5f5;
+}

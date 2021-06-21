@@ -1,19 +1,19 @@
-.pageNation{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 100%;
+.pageNation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100%;
 }
 
-.userInfoLeftBtn{
-    color: #cfcfcf;
-    display: flex;
-    justify-content: center;
+.userInfoLeftBtn {
+  color: #cfcfcf;
+  display: flex;
+  justify-content: center;
 }
 
-.userInfoRightBtn{
-    color: #cfcfcf;
-    display: flex;
-    justify-content: center;
+.userInfoRightBtn {
+  color: #cfcfcf;
+  display: flex;
+  justify-content: center;
 }

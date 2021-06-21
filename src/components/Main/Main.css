@@ -1,53 +1,53 @@
-.MainComponent{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 17vh;
+.MainComponent {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 17vh;
 }
 
-.Main-title{
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    height: 8rem;
-    font-size: 40px;
-    text-align: center;
-    font-weight:600;
-    padding: 30px 15px 10px 50px;
-    background-color: #2b2f37;
-    color: #fff;
+.Main-title {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 8rem;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600;
+  padding: 30px 15px 10px 50px;
+  background-color: #2b2f37;
+  color: #fff;
 }
-.Main-title-titleBox{
-    display: flex;
-    align-items: center;
-    margin-bottom: 28px;
-    margin-top: 10px;
+.Main-title-titleBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  margin-top: 10px;
 }
 
-.Main-title-options{
-    display: flex;
-    align-items: center;
+.Main-title-options {
+  display: flex;
+  align-items: center;
 }
 
 .Main-title-options > .search {
-    height: 24px;
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
+  height: 24px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
 
-.Main-title-img{
-    width: 70px;
+.Main-title-img {
+  width: 70px;
 }
 
 .Main-title-options > div {
-    height: 32px;
-    font-size: 18px;
-    padding: 6px 12px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 32px;
+  font-size: 18px;
+  padding: 6px 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

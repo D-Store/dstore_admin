@@ -1,18 +1,18 @@
-import {atom} from "recoil";
+import { atom } from "recoil";
 
 const mainPageNumState = atom({
-    key:"mainPageNum",
-    default:0,
-})
+  key: "mainPageNum",
+  default: 0,
+});
 
 const mainTotalPageNumState = atom({
-    key:"mainTotalPage",
-    default:0,
-})
+  key: "mainTotalPage",
+  default: 0,
+});
 
 const mainSearchState = atom({
-    key:"mainSearchState",
-    default:"",
-})
+  key: "mainSearchState",
+  default: "",
+});
 
-export { mainPageNumState,mainTotalPageNumState }
+export { mainPageNumState, mainTotalPageNumState };
